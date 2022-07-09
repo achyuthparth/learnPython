@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\tutorial",
+    "\\tutorial\\greetings",
+    "\\tutorial\\practice"
   ],
+  "SelectedNode": "\\tutorial\\greetings\\greetings.py",
   "PreviewInSolutionExplorer": false
 }
