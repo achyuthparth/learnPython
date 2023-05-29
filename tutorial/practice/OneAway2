@@ -1,0 +1,43 @@
+def TakeAStep(s1, s2, index1, index2, edit):
+    r = False
+    if edit > 1:
+        return False
+    
+    if index1 == len(s1) and index2 == len(s2):
+        return True
+    
+    if index1 == len(s1) or index2 == len(s2):
+        return (len(s1) - index1 + len(s2) - index2 + edit) < 2
+    
+    if s1[index1] == s2[index2]:
+        r = TakeAStep(s1, s2, index1 + 1, index2 + 1, edit)
+    else:
+        r = TakeAStep(s1, s2, index1 + 1, index2 + 1, edit + 1)
+    
+    if r:
+        return r
+
+    r = TakeAStep(s1, s2, index1, index2 + 1, edit + 1)
+    if r:
+        return r
+
+    r = TakeAStep(s1, s2, index1 + 1, index2, edit + 1)
+    return r
+
+def OneAway(string1, string2):
+    return TakeAStep(string1, string2, 0, 0, 0)
+
+
+   
+print(OneAway("plan", "pan") == True)
+print(OneAway("blade", "parade") == False)
+print(OneAway("fan", "fan") == True)
+print(OneAway("plan", "plane") == True) 
+print(OneAway("fan", "fin") == True) 
+print(OneAway("fam", "fims") == False)
+print(OneAway("aa", "aaaa") == False)
+print(OneAway("a", "a") == True) 
+print(OneAway("ab", "ac") == True) 
+print(OneAway("a", "b") == True) 
+print(OneAway("", "") == True)
+print(OneAway("", "b") == True) 

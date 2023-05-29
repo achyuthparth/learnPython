@@ -1,0 +1,22 @@
+def BoxerMatch(fighters):
+    if len(fighters) <= 1:
+        return
+    boxer = 0
+    # so the complexity is O(N^2)
+    while boxer < len(fighters) -1: # This will run for (n-1) times
+        opponent = boxer + 1
+        while opponent < len(fighters): # This will run for (n-1) times
+            print (fighters[boxer] + " VS " + fighters[opponent])
+            opponent += 1
+        boxer += 1
+
+fighters = ["Tyson", "Holyfield", "Fury", "Ali", "Foreman", "Fraizer"]
+refrees = ["gp", "anirud"]
+
+
+def BoxerMatch2(fighters):
+    for i in range(len(fighters)-1):
+        for j in range(i+1, len(fighters)):
+            print(fighters[i] + ' v ' + fighters[j])
+
+BoxerMatch(fighters)
