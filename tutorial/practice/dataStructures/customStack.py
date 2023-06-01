@@ -11,7 +11,7 @@ class Stack:
         return LinkedList.pushValueFront(Stack.getStack(self), value)
     
     def pop(self):
-        return LinkedList.popFrontNode(Stack.getStack(self))
+        return LinkedList.popFrontValue(Stack.getStack(self))
     
     def top(self):
         return LinkedList.getHead(Stack.getStack(self))

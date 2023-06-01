@@ -1,5 +1,5 @@
 from linkedList import LinkedList
-from linkedList import Node as LinkedListNode
+from linkedList import LinkedListNode as LinkedListNode
 import unittest
 class TestLinkedList(unittest.TestCase):
     
@@ -106,6 +106,3 @@ class TestLinkedList(unittest.TestCase):
         sizeTest = LinkedList.size(sampleList)
         self.assertEqual(sizeTest, 3)
         #works
-
-if __name__ == '__main__':
-    unittest.main()    
