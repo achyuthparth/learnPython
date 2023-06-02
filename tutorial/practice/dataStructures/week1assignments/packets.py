@@ -9,22 +9,21 @@ Response = namedtuple("Response", ["was_dropped", "started_at"])
 class Buffer:
     def __init__(self, size):
         self.size = size
-        self.finish_time = [None] * self.size
+        self.finish_time = []
+        self.queue = []
 
     def process(self, request):
         # write your code here
-        if request[0] is not None:
-            self.finish_time.insert(request[0], request[1])
-        else: return (False, -1)
-        sumTime = sum(time for time in self.finish_time if time is not None) - request[1]
-        return (sumTime, request[1])
+        startTime = 0 if self.finish_time == [] else self.finish_time[-1]
+        endTime = request[1] + max(startTime, request[0])
+        if self.queue != []:
+            while self.queue[0] < startTime:
+                del self.queue[0]
+        if len(self.queue) < self.size:
+            self.queue.append(endTime)
+        else: return (-1, None)
+        return (startTime, request[1])
 
-
-def process_requests(requests, buffer):
-    responses = []
-    for request in requests:
-        responses.append(Buffer.process(buffer, request))
-    return responses
 
 
 def main():
@@ -35,10 +34,11 @@ def main():
         requests.append(Request(arrived_at, time_to_process))
 
     buffer = Buffer(buffer_size)
-    responses = process_requests(requests, buffer)
+    for request in requests:
+        Buffer.process(buffer, request)
 
-    for response in responses:
-        print(response.started_at if not response.was_dropped else -1)
+    for each in buffer.finish_time:
+        print(each)
 
 
 if __name__ == "__main__":
