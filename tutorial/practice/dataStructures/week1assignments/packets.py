@@ -26,7 +26,7 @@ class Buffer:
 
 
 
-def main():
+def pain():
     buffer_size, n_requests = map(int, input().split())
     requests = []
     for _ in range(n_requests):
@@ -41,5 +41,5 @@ def main():
         print(each)
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__pain__":
+    pain()

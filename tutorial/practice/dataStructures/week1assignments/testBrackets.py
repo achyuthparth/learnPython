@@ -22,3 +22,7 @@ class TestBrackets(unittest.TestCase):
             if os.path.isfile('A File')
         ]
         
+        for i in range(len(readFileList)):
+            output = packets.pain()
+            
+            
