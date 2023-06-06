@@ -41,6 +41,7 @@ class LinkedList:
         
     def pushNodeBack(self, newNode):
 #no elements in linked list, at least 1 element in linked list
+#if using a tail, set tail to the new back node
         if self.head is None:
             self.head = newNode
         else:

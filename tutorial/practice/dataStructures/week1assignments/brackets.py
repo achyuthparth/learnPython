@@ -11,7 +11,7 @@ def are_matching(left, right):
 
 def find_mismatch(text):
     bracketStack = []
-    pos = 1
+    pos = 0
     for char in text:
         if char in "([{":
             bracketStack.insert(0, char)
@@ -20,18 +20,18 @@ def find_mismatch(text):
                 if char == ")":
                     if bracketStack[0] == "(":
                         del bracketStack[0]
-                    else: return str(pos)
+                    else: return str(pos + 1)
                 elif char == "]":
                     if bracketStack[0] == "[":
                         del bracketStack[0]
-                    else: return str(pos)
+                    else: return str(pos + 1)
                 elif char == "}":
                     if bracketStack[0] == "{":
                         del bracketStack[0]
-                    else: return str(pos)
-            else: return str(pos)
+                    else: return str(pos + 1)
+            else: return str(pos + 1)
         pos += 1
-    return str(pos) if bracketStack != [] else "success"
+    return str(pos) if bracketStack != [] else "Success"
 
 
 def main():

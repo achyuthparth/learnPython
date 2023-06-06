@@ -4,22 +4,6 @@
 import sys
 
 class StackWithMax():
-    def __init__(self):
-        self.__stack = []
-        
-
-    def Push(self, a):
-        self.__stack.append(a)
-
-    def Pop(self):
-        assert(len(self.__stack))
-        self.__stack.pop()
-
-    def Max(self):
-        assert(len(self.__stack))
-        return max(self.__stack)
-
-class Stack:
     def __init__(self, size):
         self.size = size
         self.stack = []
@@ -32,15 +16,17 @@ class Stack:
             self.stack.insert(0, value)
             
     def max(self):
+        assert(len(self.stack))
         return self.maxVal
     
     def pop(self):
+        assert(len(self.stack))
         returnVal = self.stack[0]
         del self.stack[0]
         return returnVal
-
+    
 if __name__ == '__main__':
-    stack = Stack()
+    stack = StackWithMax()
 
     num_queries = int(sys.stdin.readline())
     for _ in range(num_queries):
