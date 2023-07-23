@@ -4,6 +4,8 @@ import sys
 
 def reach(adj, x, y):
     #write your code here
+    if x in adj[y] or y in adj[x]:
+        return 1
     return 0
 
 if __name__ == '__main__':
