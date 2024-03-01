@@ -8,28 +8,7 @@ Bracket = namedtuple("Bracket", ["char", "position"])
 def are_matching(left, right):
     return (left + right) in ["()", "[]", "{}"]
 
-
-def find_mismatch(text):
-    bracketStack = []
-    for pos, char in enumerate(text):
-        if char in "([{":
-            bracketStack.insert(0, char)
-        if char in ")]}":
-            if bracketStack!= []:
-                if char == ")":
-                    if bracketStack[0] == "(":
-                        del bracketStack[0]
-                    else: return str(pos + 1)
-                elif char == "]":
-                    if bracketStack[0] == "[":
-                        del bracketStack[0]
-                    else: return str(pos + 1)
-                elif char == "}":
-                    if bracketStack[0] == "{":
-                        del bracketStack[0]
-                    else: return str(pos + 1)
-            else: return str(pos + 1)
-    return str(pos + 1) if bracketStack != [] else "Success"
+#save the index and the bracket as a tuple so that you can find the mismatch
 
 
 def main():
