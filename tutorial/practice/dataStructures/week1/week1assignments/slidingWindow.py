@@ -23,5 +23,4 @@ if __name__ == '__main__':
     assert len(input_sequence) == n
     window_size = int(input())
 
-    print(*max_sliding_window_naive(input_sequence, window_size))
-
+    print(max_sliding_window_naive(input_sequence, window_size))
